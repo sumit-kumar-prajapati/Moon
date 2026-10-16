@@ -1,0 +1,137 @@
+
+:root{
+  --speed: 1;
+}
+
+body{
+  margin:0;
+  background:black;
+  overflow:hidden;
+  font-family: Arial, sans-serif;
+  color:white;
+}
+
+/*  STARS */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  opacity:0.4;
+}
+
+/* CONTROLS */
+.controls{
+  position:fixed;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#111;
+  padding:10px 20px;
+  border-radius:20px;
+  box-shadow:0 0 10px cyan;
+}
+
+/* SOLAR SYSTEM */
+.solar-system{
+  width:90vmin;
+  height:90vmin;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* SUN */
+.sun{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:12vmin;
+  height:12vmin;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle, yellow, orange);
+  border-radius:50%;
+  box-shadow:0 0 50px 20px orange;
+}
+
+/* ORBITS */
+.orbit{
+  position:absolute;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* PLANET */
+.planet{
+  position:absolute;
+  top:-0.5em;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:50%;
+}
+
+/* MERCURY */
+.mercury-orbit{
+  width:25%;
+  height:25%;
+  animation: spin calc(4s / var(--speed)) linear infinite;
+}
+.mercury{
+  width:1em;
+  height:1em;
+  background:gray;
+}
+
+/* EARTH */
+.earth-orbit{
+  width:45%;
+  height:45%;
+  animation: spin calc(10s / var(--speed)) linear infinite;
+}
+.earth{
+  width:1.5em;
+  height:1.5em;
+  background:blue;
+  box-shadow:0 0 10px cyan;
+}
+
+/* MOON */
+.moon-orbit{
+  width:4em;
+  height:4em;
+  position:absolute;
+  top:-1.2em;
+  left:50%;
+  transform:translateX(-50%);
+  animation: spin calc(2s / var(--speed)) linear infinite;
+}
+.moon{
+  width:0.6em;
+  height:0.6em;
+  background:lightgray;
+}
+
+/* MARS */
+.mars-orbit{
+  width:65%;
+  height:65%;
+  animation: spin calc(18s / var(--speed)) linear infinite;
+}
+.mars{
+  width:1.3em;
+  height:1.3em;
+  background:red;
+}
+
+/* ANIMATION */
+@keyframes spin{
+  from{ transform:translate(-50%,-50%) rotate(0deg); }
+  to{ transform:translate(-50%,-50%) rotate(360deg); }
+}
